@@ -19,17 +19,17 @@
         <!-- navigation -->
         <ul class="navigation">
             <li <?php if (View::checkForActiveController($filename, "index")) { echo ' class="active" '; } ?> >
-                <a href="<?php echo Config::get('URL'); ?>index/index">Index</a>
+                <a href="<?php echo Config::get('URL'); ?>qroute/index">Index</a>
             </li>
             <li <?php if (View::checkForActiveController($filename, "profile")) { echo ' class="active" '; } ?> >
                 <a href="<?php echo Config::get('URL'); ?>profile/index">Profiles</a>
             </li>
             <?php if (Session::userIsLoggedIn()) { ?>
                 <li <?php if (View::checkForActiveController($filename, "dashboard")) { echo ' class="active" '; } ?> >
-                    <a href="<?php echo Config::get('URL'); ?>dashboard/index">Dashboard</a>
+                    <a href="<?php echo Config::get('URL'); ?>qroute/route">Route</a>
                 </li>
                 <li <?php if (View::checkForActiveController($filename, "note")) { echo ' class="active" '; } ?> >
-                    <a href="<?php echo Config::get('URL'); ?>note/index">Mein rooster</a>
+                    <a href="<?php echo Config::get('URL'); ?>qroute/howto">How to</a>
                 </li>
             <?php } else { ?>
                 <!-- for not logged in users -->

@@ -73,4 +73,5 @@ return array(
 	"FEEDBACK_COOKIE_INVALID" => "Your remember-me-cookie is invalid.",
 	"FEEDBACK_COOKIE_LOGIN_SUCCESSFUL" => "You were successfully logged in via the remember-me-cookie.",
 	"FEEDBACK_TODO_CREATION_FAILED" => "Ja dat werkt niet he...",
+	"FEEDBACK_SUBMIT_ACTION_FAILED" => "Verzenden mislukt probeer opniew.",
 );

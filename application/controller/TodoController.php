@@ -8,7 +8,7 @@ class TodoController extends Controller
             'activities' => TodoModel::getAllActivities()
         ));
 	}
-
+	
 	public function create()
     {
         TodoModel::createActivity(Request::post('todo_text'));
