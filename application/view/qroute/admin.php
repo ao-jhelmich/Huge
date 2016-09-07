@@ -2,12 +2,19 @@
     <h1>QrouteController/admin</h1>
     <div class="box">
     <table class="overview-table">
-            <form method="get" action="<?php echo Config::get('URL');?>qroute/create">
+            <form method="post" action="<?php echo Config::get('URL');?>qroute/create">
                 <label>Niewe vraag toevoegen: </label><br><br>
-                <input type="text" name="question_text" placeholder="vraag" />
-                <input type="text" name="question_text" placeholder="antwoord" />
-                <input type="text" name="question_text" placeholder="locatie" />
-                <input type="submit" autocomplete="off" />
+                <label>Vraag: <input type="text" name="question_text" placeholder="vraag" /></label>
+                <label> Antwoord: <input type="text" name="question_answer" placeholder="antwoord" /></label>
+                <label>Locatie:
+                <select type="text" name="location_id">
+                    <?php foreach ($this->questions as $key => $value) { ?>
+                        <option value="<?= $value->location_id;?>"><?= $value->location_name;?></option>
+                    <?php } ?> 
+                 </select> 
+                 </label>
+                <br><br>
+                <input value="verzenden" type="submit">
             </form>
                 <thead>
                 <tr>
@@ -26,9 +33,9 @@
                             <td><?= $value->question_id; ?></td>
                             <td><?= $value->question_text; ?></td>
                             <td><?= $value->question_answer; ?></td>
-                            <td><?= $value->question_location; ?></td>
-                            <td><a href="<?= Config::get('URL') . 'Qroute/edit/' . $value->question_id; ?>">Edit</a></td>
-                            <td><a href="<?= Config::get('URL') . 'Qroute/delete/' . $value->question_id; ?>">Delete</a></td>
+                            <td><?= $value->location_url; ?></td>
+                            <td><a href="<?= Config::get('URL') . 'qroute/edit/' . $value->question_id; ?>">Edit</a></td>
+                            <td><a href="<?= Config::get('URL') . 'qroute/delete/' . $value->question_id; ?>">Delete</a></td>
                         </tr>
                     <?php } ?>
                 </tbody>

@@ -16,16 +16,22 @@ class QrouteController extends Controller
 
 	public function create()
     {
-        QrouteModel::createQuestion(Request::post('question_text'), Request::post('question_answer'),
-        Request::post('question_location'));
+        QrouteModel::createQuestion(Request::post('question_text'), Request::post('question_answer'),	
+        Request::post('location_id'));
         Redirect::to('qroute/admin');
+    }
+
+    public function delete($question_id)
+    {
+    	QrouteModel::deleteQuestion($question_id);
+    	Redirect::to('qroute/admin');
     }
 
 
 	public function edit($question_id)
 	{
-		$this->View->render('Qroute/edit', array(
-			'question' => QrouteModel::updateQuestion()
+		$this->View->render('qroute/edit', array(
+			'question' => QrouteModel::getQuestion($question_id)
 			));
 	}
 
@@ -52,7 +58,7 @@ class QrouteController extends Controller
 		Redirect::to('Qroute/scan');	
 	}
 
-	public function scan()
+	public function scan($question_id)
 	{
 		$this->View->render('Qroute/scan', array(
 			'question' => QrouteModel::getQuestion($question_id)
